@@ -1,2 +1,6 @@
-package web.atlasstay.backend.Entities;public enum Role {
+package web.atlasstay.backend.Entities;
+
+public enum Role {
+    ADMIN,
+    USER
 }

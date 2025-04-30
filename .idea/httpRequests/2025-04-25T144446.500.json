@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-04-25T13:44:46.414+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/api/bookings"
+}

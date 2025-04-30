@@ -1,0 +1,53 @@
+GET http://localhost:4040/api/bookings
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2025-04-25T145238.200.json
+
+###
+
+POST http://localhost:4040/api/bookings
+Content-Type: application/json
+Content-Length: 193
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "checkInDate": "2025-05-09",
+  "checkOutDate": "2025-05-09",
+  "numOfAdults": 2,
+  "numOfChildren": 0,
+  "bookingConfirmationCode": "",
+  "status": "PENDING",
+  "roomId": 1,
+  "userId": 1
+}
+
+<> 2025-04-25T144551.500.json
+
+###
+
+POST http://localhost:4040/api/bookings
+Content-Type: application/json
+Content-Length: 186
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "checkInDate": "2025-05-09",
+  "checkOutDate": "2025-05-09",
+  "numOfAdults": 2,
+  "numOfChildren": 0,
+  "bookingConfirmationCode": "",
+  "status": "",
+  "roomId": 1,
+  "userId": 1
+}
+
+<> 2025-04-25T144446.500.json
+
+###
+

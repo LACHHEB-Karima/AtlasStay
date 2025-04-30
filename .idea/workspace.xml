@@ -1,34 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="faa6ffae-0694-4dcc-a789-ccd21e6a14cc" name="Changes" comment="" />
+    <list default="true" id="faa6ffae-0694-4dcc-a789-ccd21e6a14cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AtlasStay-diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AtlasStay.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/BackendApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Claudinary/CloudinaryConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Claudinary/CloudinaryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/ApplicationConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/BookingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/RoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/AuthenticationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/AuthenticationResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/BookingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/BookingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RegistrationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RoomDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Booking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/BookingStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/EmailTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ActivationTokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/BookingNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ErrorCodes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ExceptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/OperationNotPermittedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/RoomNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/BookingMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/ModelMapperConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/RoomMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/BookingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/RoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/TokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/BookingServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/RoomServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/UserDetailsServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Interfaces/BookingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Interfaces/RoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Todo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Utils/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/templates/activate_account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/templates/booking_confirmation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/BackendApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/Services/BookingServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/booking-api-testing.http" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2t2WO7PsixMO2Nb7ZUGR8cc2BSf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.BookingServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingServiceImplTest.testSaveBookingConfirmationCodeNotNullAndHas10Chars.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="web.atlasstay.backend.Entities" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
+    <configuration name="BookingServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.atlasstay.backend.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="web.atlasstay.backend.Services" />
+      <option name="MAIN_CLASS_NAME" value="web.atlasstay.backend.Services.BookingServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceImplTest.testSaveBookingConfirmationCodeNotNullAndHas10Chars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.atlasstay.backend.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="web.atlasstay.backend.Services" />
+      <option name="MAIN_CLASS_NAME" value="web.atlasstay.backend.Services.BookingServiceImplTest" />
+      <option name="METHOD_NAME" value="testSaveBookingConfirmationCodeNotNullAndHas10Chars" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="web.atlasstay.backend.BackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BookingServiceImplTest.testSaveBookingConfirmationCodeNotNullAndHas10Chars" />
+        <item itemvalue="JUnit.BookingServiceImplTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -37,11 +202,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739550618069</updated>
-      <workItem from="1739550619150" duration="4000" />
+      <workItem from="1739550619150" duration="15574000" />
+      <workItem from="1739974348917" duration="561000" />
+      <workItem from="1740040711798" duration="26191000" />
+      <workItem from="1740077180216" duration="4530000" />
+      <workItem from="1740088555728" duration="931000" />
+      <workItem from="1740146832093" duration="31216000" />
+      <workItem from="1740334486419" duration="2677000" />
+      <workItem from="1744222255402" duration="3718000" />
+      <workItem from="1745564913660" duration="23560000" />
+      <workItem from="1745685799881" duration="17778000" />
+      <workItem from="1746024817911" duration="3453000" />
+      <workItem from="1746036023444" duration="2535000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

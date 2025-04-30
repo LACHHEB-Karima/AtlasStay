@@ -1,0 +1,25 @@
+const BASE_URL = 'http://localhost:4040/api/v1/public/rooms';
+
+// Get all available rooms
+export const fetchAvailableRooms = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/available/all?page=0&size=4`);
+    if (!res.ok) throw new Error('Failed to fetch rooms');
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+};
+
+// Get room by ID
+export const fetchRoomById = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`);
+    if (!res.ok) throw new Error('Failed to fetch room details');
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};

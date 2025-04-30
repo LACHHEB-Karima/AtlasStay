@@ -1,2 +1,8 @@
-package web.atlasstay.backend.Exceptions;public class BookingNotFound {
+package web.atlasstay.backend.Exceptions;
+
+public class BookingNotFoundException extends RuntimeException {
+
+    public BookingNotFoundException(String message) {
+        super(message);
+    }
 }

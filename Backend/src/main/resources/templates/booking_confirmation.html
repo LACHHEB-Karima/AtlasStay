@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Booking Confirmation</title>
 </head>
 <body>
-$END$
+<h2>Hello, <span th:text="${username}">User</span>!</h2>
+
+<p>Thank you for your booking with AtlasStay!</p>
+
+<p>Your booking has been confirmed. Here are the details:</p>
+
+<ul>
+  <li><strong>Confirmation Code:</strong> <span th:text="${activation_code}">CONF1234</span></li>
+</ul>
+
+<p>We look forward to welcoming you!</p>
+
+<p>Best regards,<br>AtlasStay Team</p>
 </body>
 </html>
