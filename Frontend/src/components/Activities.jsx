@@ -7,7 +7,7 @@ const Activities = () => {
       description:
         "Explore scenic routes through Berber villages and breathtaking mountain valleys. Our guided trekking tours offer both challenge and serenity in the heart of nature.",
       image:
-        "https://images.unsplash.com/photo-1549880181-56a44cf4a9a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=60", // Replace with a relevant image
+        "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/aw2rxzworuuyz5wa5uww?_a=DAGAACAVZAA0", // Replace with a relevant image
       buttonText: "Explore",
     },
     {
@@ -15,7 +15,7 @@ const Activities = () => {
       description:
         "Experience the magic of the Atlas foothills with a camel ride during golden hour. This peaceful journey offers unforgettable views and cultural immersion.",
       image:
-        "https://images.unsplash.com/photo-1564518098550-4d00aaf6a098?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=60", // Replace with another relevant image
+        "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/mszlnvtnhr3es30emswt?_a=DAGAACAVZAA0", // Replace with another relevant image
       buttonText: "Explore",
     },
     {
@@ -23,7 +23,7 @@ const Activities = () => {
         description:
           "Embark on an exhilarating rock climbing adventure in Todgha Gorge, a stunning limestone canyon located in the eastern High Atlas Mountains near Tinerhir. With its towering 160-meter-high cliffs and over 150 bolted routes ranging from French Grade 5+ to 8, Todgha Gorge is a premier destination for climbers of all levels. The gorge's dramatic scenery and challenging ascents offer an unforgettable experience for adventure seekers.",
         image:
-          "https://images.unsplash.com/photo-1564518098550-4d00aaf6a098?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=60", // Replace with another relevant image
+          "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/oxerp69uh9cpxwiwicjm?_a=DAGAACAVZAA0", // Replace with another relevant image
         buttonText: "Explore",
       },
       {
@@ -31,7 +31,7 @@ const Activities = () => {
         description:
           "Discover the serene landscapes of the Ourika Valley, nestled in the foothills of the High Atlas Mountains just 20 miles from Marrakech. This picturesque valley is renowned for its lush greenery, cascading waterfalls, and traditional Amazigh villages. Visitors can enjoy guided hikes through untouched wilderness, explore local markets, and experience the rich biodiversity of the region, including unique flora and fauna.",
         image:
-          "https://images.unsplash.com/photo-1564518098550-4d00aaf6a098?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=60", // Replace with another relevant image
+          "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/rkz2eprs3d45cey6fqop?_a=DAGAACAVZAA0", // Replace with another relevant image
         buttonText: "Explore",
       },
   ];

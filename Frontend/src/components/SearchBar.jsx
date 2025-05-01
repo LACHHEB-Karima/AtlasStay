@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const SearchBar = () => {
   // Get today's date as a string in format YYYY-MM-DD
@@ -31,9 +33,9 @@ const SearchBar = () => {
           {/* Check-in Date Selector */}
           <div className="bg-white flex flex-col sm:flex-row items-start sm:items-center px-4 py-3 rounded-lg shadow hover:shadow-md w-full md:w-auto">
             <div className="flex items-center mb-2 sm:mb-0">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+              </svg> */}
               <span className="mr-2">Check-in Date</span>
             </div>
             <input 
@@ -43,14 +45,23 @@ const SearchBar = () => {
               onChange={(e) => setCheckInDate(e.target.value)}
               className="outline-none w-full sm:w-auto"
             />
+            {/* <DatePicker
+              selected={checkInDate}
+              onChange={(date) => setCheckInDate(date)}
+              dateFormat="dd/MM/yyyy"
+              locale="en-GB"
+              placeholderText="Select a date"
+              minDate={new Date()}
+              className="border border-gray-300 px-3 py-2 rounded-md"
+            /> */}
           </div>
           
           {/* Check-out Date Selector */}
           <div className="bg-white flex flex-col sm:flex-row items-start sm:items-center px-4 py-3 rounded-lg shadow hover:shadow-md w-full md:w-auto">
             <div className="flex items-center mb-2 sm:mb-0">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+              </svg> */}
               <span className="mr-2">Check-out Date</span>
             </div>
             <input 
@@ -69,9 +80,9 @@ const SearchBar = () => {
           
           {/* Room Type Selector */}
           <div className="bg-white relative flex items-center px-4 py-3 rounded-lg shadow hover:shadow-md w-full md:w-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-teal-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
+            </svg> */}
             <div 
               className="cursor-pointer flex items-center justify-between w-full"
               onClick={() => setShowRoomTypeOptions(!showRoomTypeOptions)}
@@ -108,9 +119,14 @@ const SearchBar = () => {
           </div>
           
           {/* Search Button */}
-          <button className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors w-full md:w-auto">
+          <Link
+            to={`/search-results?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}`}
+            className={`bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors w-full md:w-auto text-center ${
+              (!checkInDate || !checkOutDate || !roomType) && 'pointer-events-none opacity-50'
+            }`}
+          >
             Search
-          </button>
+          </Link>
         </div>
       </div>
     </div>

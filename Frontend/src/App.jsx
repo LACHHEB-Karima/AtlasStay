@@ -9,6 +9,8 @@ import Wishlist from './components/Rooms/Whishlist';
 import { WishlistProvider } from './Contexts/WishListContext';
 import RoomDetails from './components/Rooms/RoomDetails';
 import BookingProcess from './components/Booking/BookingProcess';
+import Rooms from './components/Rooms/Rooms';
+import SearchResult from './components/SearchResult';
 
 const PlaceholderPage = ({ title }) => (
   <div className="py-16 text-center">
@@ -30,12 +32,13 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/rooms" element={<PlaceholderPage title="Rooms" />} />
+            <Route path="/rooms" element={<Rooms />} />
             <Route path="/activities" element={<Activities />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/room/:id" element={<RoomDetails />} />
             <Route path="/booking" element={<BookingProcess />} />
+            <Route path="/search-results" element={<SearchResult />} />
             <Route path="*" element={<PlaceholderPage title="404 - Not Found" />} />
           </Routes>
       </main>

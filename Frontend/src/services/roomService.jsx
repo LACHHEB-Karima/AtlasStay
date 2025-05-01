@@ -23,3 +23,16 @@ export const fetchRoomById = async (id) => {
     return null;
   }
 };
+
+export const fetchAvailableRoomsBySearch = async (checkInDate, checkOutDate, roomType) => {
+  try {
+    const res = await fetch(`${BASE_URL}/available?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}&page=0&size=10`);
+    if (!res.ok) throw new Error('Failed to fetch search results');
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+};
+
+

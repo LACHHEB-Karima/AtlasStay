@@ -12,9 +12,9 @@ const Hero = () => {
           <p className="text-gray-500 mb-6">
             We provide authentic Moroccan experiences in the heart of the Atlas mountains. Reconnect with nature and create unforgettable memories.
           </p>
-          <button className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors">
+          {/* <button className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors">
             Show More
-          </button>
+          </button> */}
           <div className="w-full md:w-1/2">
           <div className="grid grid-cols-3 gap-4 mt-8 md:mt-12">
             <div className="flex flex-col items-center">
@@ -51,11 +51,12 @@ const Hero = () => {
           </div>
           </div>
         </div>
-        
+        {/*https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/aeclfwcachqik0an2xx4?_a=DAGAACAVZAA0
+        */}
         <div className="w-full md:w-1/2">
-          <div className="rounded-2xl overflow-hidden shadow-lg p-2 bg-white">
+          <div className="rounded-2xl overflow-hidden  p-2 bg-white">
             <img 
-              src="/api/placeholder/600/400" 
+              src="https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/putnqhlodx1i1b3bg6ys?_a=DAGAACAVZAA0" 
               alt="Scenic view of Atlas mountains" 
               className="w-full h-64 md:h-80 rounded-xl object-cover"
             />
