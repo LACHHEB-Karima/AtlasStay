@@ -78,7 +78,7 @@ public class BookingServiceImpl implements BookingService {
         // Send a booking confirmation email to the user
         emailService.sendEmail(
                 booking.getUser().getEmail(),
-                booking.getUser().getFirstname(),
+                booking.getUser().getName(),
                 EmailTemplate.BOOKING_CONFIRMATION,  // Reference to booking confirmation template
                 "", // Not needed here
                 booking.getBookingConfirmationCode(),

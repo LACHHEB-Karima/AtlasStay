@@ -40,8 +40,7 @@ public class AuthenticationService {
     public void register(RegistrationDto request) throws MessagingException {
         var userRole = Role.USER;
         var user = User.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
+                .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .accountLocked(false)

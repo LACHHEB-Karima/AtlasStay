@@ -5,74 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faa6ffae-0694-4dcc-a789-ccd21e6a14cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AtlasStay-diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AtlasStay.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/BackendApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Claudinary/CloudinaryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Claudinary/CloudinaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/ApplicationConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/BookingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/AuthenticationDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/AuthenticationResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/BookingDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/BookingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RegistrationDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RoomDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/BookingStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Currency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/EmailTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ActivationTokenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/BookingNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ErrorCodes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/ExceptionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/OperationNotPermittedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/RoomNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Exceptions/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/BookingMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/ModelMapperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/RoomMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/BookingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/RoomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/TokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/BookingServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/RoomServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/UserDetailsServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Interfaces/BookingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Interfaces/RoomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Todo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/templates/activate_account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/resources/templates/booking_confirmation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/BackendApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/Services/BookingServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/test/java/web/atlasstay/backend/booking-api-testing.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Mappers/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/OAuth2/OAuth2LoginSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Test-Social-Login/Dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Test-Social-Login/OAuthSuccess.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/Test-Social-Login/TestLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Configs/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RegistrationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Dtos/RegistrationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/BookingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/UserDetailsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/web/atlasstay/backend/Services/Implementations/UserDetailsServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,8 +37,8 @@
       <list>
         <option value="Enum" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -125,7 +78,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -213,7 +166,10 @@
       <workItem from="1745564913660" duration="23560000" />
       <workItem from="1745685799881" duration="17778000" />
       <workItem from="1746024817911" duration="3453000" />
-      <workItem from="1746036023444" duration="2535000" />
+      <workItem from="1746036023444" duration="23141000" />
+      <workItem from="1746478390256" duration="652000" />
+      <workItem from="1746545003337" duration="2146000" />
+      <workItem from="1746555447481" duration="3969000" />
     </task>
     <servers />
   </component>

@@ -15,12 +15,9 @@ import web.atlasstay.backend.Entities.Role;
 public class RegistrationDto {
 
 
-    @NotEmpty(message = "Firstname is mandatory")
-    @NotNull(message = "Firstname is mandatory")
-    private String firstname;
-    @NotEmpty(message = "Lastname is mandatory")
-    @NotNull(message = "Lastname is mandatory")
-    private String lastname;
+    @NotEmpty(message = "Full name is mandatory")
+    @NotNull(message = "Full name is mandatory")
+    private String name;
     @Email(message = "Email is not well formatted")
     @NotEmpty(message = "Email is mandatory")
     @NotNull(message = "Email is mandatory")

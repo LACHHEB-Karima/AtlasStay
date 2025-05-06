@@ -1,6 +1,5 @@
 package web.atlasstay.backend.Services.Implementations;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;

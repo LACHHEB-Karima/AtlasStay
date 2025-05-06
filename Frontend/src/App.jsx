@@ -11,6 +11,9 @@ import RoomDetails from './components/Rooms/RoomDetails';
 import BookingProcess from './components/Booking/BookingProcess';
 import Rooms from './components/Rooms/Rooms';
 import SearchResult from './components/SearchResult';
+import OAuthSuccess from './components/Test-Social-Login/OAuthSuccess';
+import Dashboard from './components/Test-Social-Login/Dashboard';
+import TestLogin from './components/Test-Social-Login/TestLogin';
 
 const PlaceholderPage = ({ title }) => (
   <div className="py-16 text-center">
@@ -39,6 +42,9 @@ function AppContent() {
             <Route path="/room/:id" element={<RoomDetails />} />
             <Route path="/booking" element={<BookingProcess />} />
             <Route path="/search-results" element={<SearchResult />} />
+            <Route path="/oauth2/success" element={<OAuthSuccess />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/Testlogin" element={<TestLogin />} />
             <Route path="*" element={<PlaceholderPage title="404 - Not Found" />} />
           </Routes>
       </main>

@@ -28,11 +28,14 @@ public class User implements UserDetails, Principal {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String firstname;
-    private String lastname;
+
+    @Column(name = "name")
+    private String name;
     @Column(unique = true)
     private String email;
     private String password;
+    private String providerId;
+    private String pictureUrl;
     private boolean accountLocked;
     private boolean enabled;
     @Enumerated(EnumType.STRING)
@@ -82,10 +85,10 @@ public class User implements UserDetails, Principal {
     }
 
     public String fullName() {
-        return getFirstname() + " " + getLastname();
+        return getName();
     }
     public String getFullName() {
-        return firstname + " " + lastname;
+        return name;
     }
 
     @Override

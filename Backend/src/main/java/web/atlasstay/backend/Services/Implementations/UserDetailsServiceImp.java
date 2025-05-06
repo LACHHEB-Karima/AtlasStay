@@ -15,6 +15,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class UserDetailsServiceImp implements UserDetailsService {
+
     private final UserRepository userRepository;
     @Override
     @Transactional
