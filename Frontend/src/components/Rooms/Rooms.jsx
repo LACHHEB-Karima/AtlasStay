@@ -1,7 +1,7 @@
 import React from 'react';
 import RoomCard from './RoomCard';
 import { useState, useEffect } from 'react';
-import { fetchAvailableRooms } from '../../services/roomService';
+import { fetchAllAvailableRooms } from '../../services/roomService';
 
 const Rooms = () => {
 
@@ -9,7 +9,7 @@ const Rooms = () => {
 
   useEffect(() => {
     const loadRooms = async () => {
-      const data = await fetchAvailableRooms();
+      const data = await fetchAllAvailableRooms();
       setRooms(data.content);
     };
     loadRooms();

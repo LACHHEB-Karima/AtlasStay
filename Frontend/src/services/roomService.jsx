@@ -12,6 +12,19 @@ export const fetchAvailableRooms = async () => {
   }
 };
 
+//Get all available rooms more then 10
+export const fetchAllAvailableRooms = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/available/all?page=0&size=10`);
+    if (!res.ok) throw new Error('Failed to fetch rooms');
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+};
+
+
 // Get room by ID
 export const fetchRoomById = async (id) => {
   try {

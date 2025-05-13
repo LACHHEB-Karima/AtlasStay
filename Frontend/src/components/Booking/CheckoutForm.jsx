@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { createPaymentIntent } from "../../services/bookingService";
 
 const CheckoutForm = ({ amount, onSuccess }) => {
   const stripe = useStripe();
@@ -13,7 +14,7 @@ const CheckoutForm = ({ amount, onSuccess }) => {
     setError("");
 
     try {
-      const { clientSecret } = await paymentService.createPaymentIntent(amount);
+      const { clientSecret } = await createPaymentIntent(amount);
 
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
