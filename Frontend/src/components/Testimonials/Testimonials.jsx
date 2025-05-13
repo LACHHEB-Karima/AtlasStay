@@ -1,5 +1,3 @@
-import React from 'react';
-
 const testimonials = [
   {
     name: "Leila B.",
@@ -52,6 +50,14 @@ const Testimonials = () => {
             </div>
           </div>
         ))}
+      </div>
+      {/* Decorative divider */}
+      <div className="mt-16 flex justify-center">
+        <div className="flex space-x-2 items-center">
+          <div className="w-16 h-0.5 bg-teal-600 opacity-30"></div>
+          <div className="w-3 h-3 rotate-45 bg-teal-600 opacity-30"></div>
+          <div className="w-16 h-0.5 bg-teal-600 opacity-30"></div>
+        </div>
       </div>
     </section>
   );

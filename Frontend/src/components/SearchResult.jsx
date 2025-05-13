@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { fetchAvailableRoomsBySearch } from '../services/roomService';
@@ -34,9 +33,9 @@ const SearchResult = () => {
         <p>No available rooms found.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rooms.map((room) => (
-              <RoomCard key={room.id} id={room.id} {...room} />
-            ))}
+          {rooms.map((room) => (
+            <RoomCard key={room.id} id={room.id} {...room} />
+          ))}
         </div>
       )}
     </div>

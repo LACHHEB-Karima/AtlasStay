@@ -24,6 +24,7 @@ export const fetchRoomById = async (id) => {
   }
 };
 
+//Get room availablity by dates and type
 export const fetchAvailableRoomsBySearch = async (checkInDate, checkOutDate, roomType) => {
   try {
     const res = await fetch(`${BASE_URL}/available?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}&page=0&size=10`);

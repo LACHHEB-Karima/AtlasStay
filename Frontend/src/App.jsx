@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Home from './pages/Home/Home';
@@ -11,20 +10,23 @@ import RoomDetails from './components/Rooms/RoomDetails';
 import BookingProcess from './components/Booking/BookingProcess';
 import Rooms from './components/Rooms/Rooms';
 import SearchResult from './components/SearchResult';
-import OAuthSuccess from './components/Test-Social-Login/OAuthSuccess';
-import Dashboard from './components/Test-Social-Login/Dashboard';
-import TestLogin from './components/Test-Social-Login/TestLogin';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { AuthProvider } from './Contexts/AuthContext';
+import RequireAuth from './routes/RequireAuth';
+import MyBookings from './components/Booking/MyBookings';
+import MyProfile from './components/MyProfil';
+import ActivateAccount from './pages/Login/ActivateAccount';
 
 const PlaceholderPage = ({ title }) => (
   <div className="py-16 text-center">
-    <h1 className="text-3xl font-bold text-green-600">{title} Page</h1>
+    <h1 className="text-3xl font-bold text-teal-600">{title} Page</h1>
     <p className="mt-4 text-gray-600">This page is under construction.</p>
   </div>
 );
 
 function AppContent() {
   const location = useLocation();
-  const hideNavOnRoutes = ['/login', '/signup','/booking'];
+  const hideNavOnRoutes = ['/login', '/signup', '/activate', '/booking'];
 
   const shouldHideNav = hideNavOnRoutes.includes(location.pathname);
 
@@ -40,11 +42,14 @@ function AppContent() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/room/:id" element={<RoomDetails />} />
-            <Route path="/booking" element={<BookingProcess />} />
+            <Route path="/booking"  element={ <RequireAuth>
+                                                <BookingProcess />
+                                              </RequireAuth>
+            }/>
             <Route path="/search-results" element={<SearchResult />} />
-            <Route path="/oauth2/success" element={<OAuthSuccess />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/Testlogin" element={<TestLogin />} />
+            <Route path="/my-bookings" element={<MyBookings />} />
+            <Route path="/my-profile" element={<MyProfile />} />
+            <Route path="/activate" element={<ActivateAccount />} />
             <Route path="*" element={<PlaceholderPage title="404 - Not Found" />} />
           </Routes>
       </main>
@@ -53,12 +58,21 @@ function AppContent() {
 }
 
 function App() {
+  const clientId = '785904721379-0ob3q65sbbf5o2hshct3u0tnokoohufk.apps.googleusercontent.com';
   return (
-    <WishlistProvider>
     <Router>
-      <AppContent />
+    <GoogleOAuthProvider clientId={clientId}>
+      <AuthProvider>
+      
+        <WishlistProvider>
+        
+            <AppContent />
+          
+        </WishlistProvider>
+      </AuthProvider>  
+    </GoogleOAuthProvider>
     </Router>
-  </WishlistProvider>
+
   );
 }
 

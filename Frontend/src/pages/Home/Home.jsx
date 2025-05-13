@@ -1,5 +1,3 @@
-import React from "react";
-import NavBar from "../../components/Navbar";
 import Hero from "../../components/Hero";
 import SearchBar from "../../components/SearchBar";
 import Activities from "../../components/Activities";

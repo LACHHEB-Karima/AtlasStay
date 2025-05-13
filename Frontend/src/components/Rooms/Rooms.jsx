@@ -2,18 +2,19 @@ import React from 'react';
 import RoomCard from './RoomCard';
 import { useState, useEffect } from 'react';
 import { fetchAvailableRooms } from '../../services/roomService';
+import RoomCardWithStyles from './RoomCard';
 
 const Rooms = () => {
 
-    const [rooms, setRooms] = useState([]);
+  const [rooms, setRooms] = useState([]);
 
-    useEffect(() => {
-      const loadRooms = async () => {
-        const data = await fetchAvailableRooms();
-        setRooms(data.content);
-      };
-      loadRooms();
-    }, []);
+  useEffect(() => {
+    const loadRooms = async () => {
+      const data = await fetchAvailableRooms();
+      setRooms(data.content);
+    };
+    loadRooms();
+  }, []);
 
   return (
     <section className="py-16 px-4 md:px-20">
@@ -23,7 +24,7 @@ const Rooms = () => {
       </div>
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
         {rooms.map((room) => (
-          <RoomCard key={room.id} id={room.id} {...room} />
+          <RoomCardWithStyles key={room.id} id={room.id} {...room} />
         ))}
       </div>
     </section>

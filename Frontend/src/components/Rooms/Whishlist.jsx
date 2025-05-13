@@ -6,7 +6,7 @@ const Wishlist = () => {
   const { wishlist } = useWishlist();
 
   return (
-    <section className="py-16 px-4 md:px-20 bg-[#fdfdfd]">
+    <section className="py-16 px-4 md:px-20">
       <h2 className="text-3xl font-bold mb-6 text-gray-800">Your Wishlist</h2>
 
       {wishlist.length === 0 ? (
