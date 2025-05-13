@@ -51,7 +51,7 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-      {/* Decorative divider */}
+      {/* Decorative Moroccan footer divider */}
       <div className="mt-16 flex justify-center">
         <div className="flex space-x-2 items-center">
           <div className="w-16 h-0.5 bg-teal-600 opacity-30"></div>

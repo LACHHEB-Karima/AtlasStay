@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import { Calendar } from "lucide-react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-import { checkRoomAvailability, createBooking } from "../../services/bookingService"
+import { checkRoomAvailability, createBooking } from "../../services/bookingService";
 
 export default function BookingStep1({ roomId, roomTitle, roomPrice, roomPhotoUrl, onNext }) {
   const today = new Date();

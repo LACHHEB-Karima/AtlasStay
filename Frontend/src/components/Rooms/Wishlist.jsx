@@ -1,4 +1,3 @@
-import React from 'react';
 import { useWishlist } from '../../Contexts/WishListContext';
 import RoomCard from './RoomCard';
 

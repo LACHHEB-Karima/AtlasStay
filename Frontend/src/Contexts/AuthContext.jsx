@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import * as authService from '../services/authService';
 
 const AuthContext = createContext();
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -18,7 +20,8 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Login failed', error);
       setIsAuthenticated(false);
-      throw error; 
+      throw error;
+    }
   };
 
   // Fetch the current authenticated user from the backend
@@ -56,7 +59,5 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-}
 
-export const useAuth = () => useContext(AuthContext);
+};

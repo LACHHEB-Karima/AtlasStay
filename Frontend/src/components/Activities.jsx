@@ -19,24 +19,24 @@ const Activities = () => {
       buttonText: "Explore",
     },
     {
-      title: "Rock Climbing in Todgha Gorge",
-      description:
-        "Embark on an exhilarating rock climbing adventure in Todgha Gorge, a stunning limestone canyon located in the eastern High Atlas Mountains near Tinerhir. With its towering 160-meter-high cliffs and over 150 bolted routes ranging from French Grade 5+ to 8, Todgha Gorge is a premier destination for climbers of all levels. The gorge's dramatic scenery and challenging ascents offer an unforgettable experience for adventure seekers.",
-      image:
-        "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/oxerp69uh9cpxwiwicjm?_a=DAGAACAVZAA0", // Replace with another relevant image
-      buttonText: "Explore",
-    },
-    {
-      title: "Explore the Ourika Valley's Natural Beauty",
-      description:
-        "Discover the serene landscapes of the Ourika Valley, nestled in the foothills of the High Atlas Mountains just 20 miles from Marrakech. This picturesque valley is renowned for its lush greenery, cascading waterfalls, and traditional Amazigh villages. Visitors can enjoy guided hikes through untouched wilderness, explore local markets, and experience the rich biodiversity of the region, including unique flora and fauna.",
-      image:
-        "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/rkz2eprs3d45cey6fqop?_a=DAGAACAVZAA0", // Replace with another relevant image
-      buttonText: "Explore",
-    },
+        title: "Rock Climbing in Todgha Gorge",
+        description:
+          "Embark on an exhilarating rock climbing adventure in Todgha Gorge, a stunning limestone canyon located in the eastern High Atlas Mountains near Tinerhir. With its towering 160-meter-high cliffs and over 150 bolted routes ranging from French Grade 5+ to 8, Todgha Gorge is a premier destination for climbers of all levels. The gorge's dramatic scenery and challenging ascents offer an unforgettable experience for adventure seekers.",
+        image:
+          "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/oxerp69uh9cpxwiwicjm?_a=DAGAACAVZAA0", // Replace with another relevant image
+        buttonText: "Explore",
+      },
+      {
+        title: "Explore the Ourika Valley's Natural Beauty",
+        description:
+          "Discover the serene landscapes of the Ourika Valley, nestled in the foothills of the High Atlas Mountains just 20 miles from Marrakech. This picturesque valley is renowned for its lush greenery, cascading waterfalls, and traditional Amazigh villages. Visitors can enjoy guided hikes through untouched wilderness, explore local markets, and experience the rich biodiversity of the region, including unique flora and fauna.",
+        image:
+          "https://res.cloudinary.com/demk1ru75/image/upload/v1/rooms/rkz2eprs3d45cey6fqop?_a=DAGAACAVZAA0", // Replace with another relevant image
+        buttonText: "Explore",
+      },
   ];
 
-  // Custom Moroccan pattern SVG
+    // Custom Moroccan pattern SVG
   const moroccanPattern = (
     <svg className="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 80 80">
       <pattern id="moroccanTile" patternUnits="userSpaceOnUse" width="80" height="80">
@@ -52,6 +52,11 @@ const Activities = () => {
     <section className="relative py-16 px-4 lg:px-24 ">
       {/* Moroccan geometric pattern background */}
       {moroccanPattern}
+
+      {/* Decorative arch at the top
+      <div className="flex justify-center mb-8">
+        <div className="w-24 h-12 border-t-0 border-x-8 border-b-8 rounded-b-full border-teal-700 opacity-20"></div>
+      </div> */}
 
       {/* Section heading with Moroccan-inspired styling */}
       <div className="text-center mb-16 relative">
@@ -69,8 +74,9 @@ const Activities = () => {
         {activities.map((activity, index) => (
           <div
             key={index}
-            className={`flex flex-col lg:flex-row items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
-              } gap-8`}
+            className={`flex flex-col lg:flex-row items-center ${
+              index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+            } gap-8`}
           >
             {/* Image with Moroccan frame effect */}
             <div className="lg:w-1/2 relative p-2">
@@ -87,7 +93,7 @@ const Activities = () => {
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-teal-600 opacity-20 rounded-br"></div>
             </div>
 
-            {/* Content box with styling */}
+            {/* Content box with Moroccan styling */}
             <div className="lg:w-1/2 relative">
               <div className="border-l-4 border-teal-600 pl-6">
                 <h2 className="text-2xl font-bold text-teal-700 mb-4">
@@ -96,19 +102,19 @@ const Activities = () => {
                 <p className="text-gray-700 mb-6">{activity.description}</p>
                 <button className="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700 transition flex items-center group">
                   {activity.buttonText}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
                     stroke="currentColor"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </button>
               </div>
-
-              {/* Decorative ornamental element */}
+              
+              {/* Decorative Moroccan ornamental element */}
               <div className="absolute -right-4 top-0 opacity-10">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                   <path d="M30 0L60 30L30 60L0 30L30 0Z" fill="#0D9488" />

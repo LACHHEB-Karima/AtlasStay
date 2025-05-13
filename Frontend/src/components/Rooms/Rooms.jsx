@@ -2,7 +2,6 @@ import React from 'react';
 import RoomCard from './RoomCard';
 import { useState, useEffect } from 'react';
 import { fetchAvailableRooms } from '../../services/roomService';
-import RoomCardWithStyles from './RoomCard';
 
 const Rooms = () => {
 
@@ -24,7 +23,7 @@ const Rooms = () => {
       </div>
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
         {rooms.map((room) => (
-          <RoomCardWithStyles key={room.id} id={room.id} {...room} />
+          <RoomCard key={room.id} id={room.id} {...room} />
         ))}
       </div>
     </section>

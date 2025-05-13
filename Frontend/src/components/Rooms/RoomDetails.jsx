@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../Contexts/AuthContext';
 import { fetchRoomById } from '../../services/roomService';
-import { Wifi, Snowflake, Coffee, PawPrint, ParkingCircle, Moon, Home, Coins } from 'lucide-react';
+import { Wifi, Snowflake, Coffee, PawPrint, ParkingCircle, Moon, Home, Coins} from 'lucide-react';
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -19,14 +19,12 @@ const RoomDetails = () => {
 
   const handleBookNow = () => {
     if (isAuthenticated) {
-      navigate("/booking", {
-        state: {
-          roomId: room.id,
-          roomTitle: room.roomTitle,
-          roomPrice: room.roomPrice,
-          roomPhotoUrl: room.roomPhotoUrl
-        }
-      });
+      navigate("/booking", { state: { 
+      roomId: room.id, 
+      roomTitle: room.roomTitle, 
+      roomPrice: room.roomPrice, 
+      roomPhotoUrl: room.roomPhotoUrl 
+     }});
     } else {
       navigate("/login", { state: { from: `/room/${room.id}` } });
     }
@@ -77,16 +75,16 @@ const RoomDetails = () => {
         <div className="relative mb-10">
           {/* Ornamental Border */}
           <div className="absolute -inset-1 border-4 border-teal-600 opacity-10 rounded-3xl transform rotate-1"></div>
-
+          
           {/* Image Container */}
           <div className="relative rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src={room.roomPhotoUrl}
-              alt={room.roomTitle}
-              className="w-full h-72 md:h-96 object-cover"
+            <img 
+              src={room.roomPhotoUrl} 
+              alt={room.roomTitle} 
+              className="w-full h-72 md:h-96 object-cover" 
             />
           </div>
-
+          
           {/* Decorative corner elements */}
           <div className="absolute top-0 left-0 w-10 h-10 border-t-4 border-l-4 border-teal-600 opacity-20 rounded-tl"></div>
           <div className="absolute top-0 right-0 w-10 h-10 border-t-4 border-r-4 border-teal-600 opacity-20 rounded-tr"></div>
@@ -97,9 +95,9 @@ const RoomDetails = () => {
         {/* Badge Row */}
         <div className="flex flex-wrap items-center justify-center gap-4 text-gray-700 mb-8">
           {[
-            { label: `${room.beds} Beds`, icon: <Moon className="w-5 h-5 text-teal-600" /> },
-            { label: room.roomType, icon: <Home className="w-5 h-5 text-teal-600" /> },
-            { label: `$${room.roomPrice} night`, icon: <Coins className="w-5 h-5 text-teal-600" /> }
+              { label: `${room.beds} Beds`, icon: <Moon className="w-5 h-5 text-teal-600" /> },
+              { label: room.roomType, icon: <Home className="w-5 h-5 text-teal-600" /> },
+              { label: `$${room.roomPrice} night`, icon: <Coins className="w-5 h-5 text-teal-600" /> }
           ].map((badge, idx) => (
             <div key={idx} className="relative group">
               <div className="absolute inset-0 bg-teal-700 opacity-10 rounded-full transform rotate-3 group-hover:rotate-0 transition-transform"></div>
@@ -123,7 +121,7 @@ const RoomDetails = () => {
               <rect width="100" height="100" fill="url(#cornerPattern)" />
             </svg>
           </div>
-
+          
           <div className="absolute bottom-0 right-0 w-32 h-32 opacity-5">
             <svg viewBox="0 0 100 100">
               <pattern id="cornerPattern2" patternUnits="userSpaceOnUse" width="20" height="20">
@@ -141,7 +139,7 @@ const RoomDetails = () => {
                 <p className="text-gray-700 leading-relaxed">{room.roomDescription}</p>
               </div>
 
-              {/* Amenities */}
+              {/* Amenities with Moroccan styling */}
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-teal-800 mb-6 flex items-center">
                   <div className="w-2 h-2 rotate-45 bg-teal-600 mr-3"></div>
@@ -160,24 +158,24 @@ const RoomDetails = () => {
               </div>
             </div>
 
-            {/* Booking */}
+            {/* Booking Section with Moroccan styling */}
             <div className="w-full md:w-80">
-              <div className="relative bg-white border-2 border-teal-100 rounded-xl p-6 shadow-md">
+              <div className="relative bg-white border-2 border-teal-100 rounded-xl p-6 shadow-md">                
                 <div className="flex items-baseline justify-center space-x-1 mb-6">
                   <span className="text-3xl font-bold text-teal-700">${room.roomPrice}</span>
                   <span className="text-gray-500 text-base">per night</span>
                 </div>
-
+                
                 <button
                   onClick={handleBookNow}
                   className="relative overflow-hidden w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg text-sm font-medium text-center transition-colors group"
-                >
+                > 
                   <span className="relative z-10 flex items-center justify-center">
                     Book Your Stay
-                    <svg
-                      className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      viewBox="0 0 24 24"
+                    <svg 
+                      className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
                       stroke="currentColor"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -188,8 +186,8 @@ const RoomDetails = () => {
             </div>
           </div>
         </div>
-
-        {/* Decorative footer */}
+        
+        {/* Decorative footer element */}
         <div className="flex justify-center mb-10">
           <svg width="60" height="30" viewBox="0 0 60 30" className="text-teal-600 opacity-20">
             <path d="M0,0 L60,0 L30,30 Z" fill="currentColor" />

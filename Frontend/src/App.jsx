@@ -1,10 +1,11 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import SignUp from './pages/Login/Signup';
 import Activities from './components/Activities';
-import Wishlist from './components/Rooms/Whishlist';
+import Wishlist from './components/Rooms/Wishlist';
 import { WishlistProvider } from './Contexts/WishListContext';
 import RoomDetails from './components/Rooms/RoomDetails';
 import BookingProcess from './components/Booking/BookingProcess';
@@ -16,6 +17,8 @@ import RequireAuth from './routes/RequireAuth';
 import MyBookings from './components/Booking/MyBookings';
 import MyProfile from './components/MyProfil';
 import ActivateAccount from './pages/Login/ActivateAccount';
+import { Testing1 } from './components/Testing1';
+
 
 const PlaceholderPage = ({ title }) => (
   <div className="py-16 text-center">
@@ -67,12 +70,11 @@ function App() {
         <WishlistProvider>
         
             <AppContent />
-          
+
         </WishlistProvider>
       </AuthProvider>  
     </GoogleOAuthProvider>
     </Router>
-
   );
 }
 

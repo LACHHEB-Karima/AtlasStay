@@ -1,4 +1,3 @@
-// src/services/bookingService.js
 import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:4040/api/v1/public/bookings';
@@ -41,7 +40,7 @@ export const cancelBooking = async (bookingId) => {
 };
 
 export const getMyBookings = async () => {
-  const response = await axios.get(API_BASE_URL, {
+  const response = await axios.get(`${API_BASE_URL}`, {
     withCredentials: true,
   });
   return response.data;
