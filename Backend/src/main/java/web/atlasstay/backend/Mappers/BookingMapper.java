@@ -1,45 +1,68 @@
 package web.atlasstay.backend.Mappers;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
+import org.springframework.stereotype.Service;
 import web.atlasstay.backend.Dtos.BookingDTO;
+import web.atlasstay.backend.Dtos.RoomDTO;
 import web.atlasstay.backend.Entities.Booking;
+import web.atlasstay.backend.Entities.Room;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class BookingMapper {
-    private static final ModelMapper modelMapper = new ModelMapper();
 
-//    static {
-//        // Explicitly define custom mappings, if necessary
-//        modelMapper.addMappings(new PropertyMap<BookingDTO, Booking>() {
-//            @Override
-//            protected void configure() {
-//                map(source.getBookingConfirmationCode(), destination.getBookingConfirmationCode());
-//                map(source.getRoomId(), destination.getRoomId());
-//                map(source.getUserId(), destination.getUserId());
-//            }
-//        });
-//    }
+    private final ModelMapper modelMapper;
+    private final RoomMapper roomMapper;
 
+    public BookingMapper(ModelMapper modelMapper, RoomMapper roomMapper) {
+        this.modelMapper = modelMapper;
+        this.roomMapper = roomMapper;
 
-    public static BookingDTO toBookingDTO(Booking booking) {
-        return modelMapper.map(booking, BookingDTO.class);
+        // Optional: Customize the mapping if needed
+        modelMapper.typeMap(Booking.class, BookingDTO.class).addMappings(mapper -> {
+            mapper.skip(BookingDTO::setRoom); // handled manually
+        });
     }
 
-    public static Booking toBooking(BookingDTO bookingDTO) {
-        return modelMapper.map(bookingDTO, Booking.class);
+    public BookingDTO toBookingDTO(Booking booking) {
+        if (booking == null) return null;
+
+        BookingDTO bookingDTO = modelMapper.map(booking, BookingDTO.class);
+
+        Room room = booking.getRoom();
+        if (room != null) {
+            RoomDTO roomDTO = roomMapper.toRoomDTO(room);
+            bookingDTO.setRoom(roomDTO);
+        }
+
+        return bookingDTO;
     }
 
-    public static List<BookingDTO> toBookingDTOList(List<Booking> bookings) {
+    public Booking toBooking(BookingDTO bookingDTO) {
+        if (bookingDTO == null) return null;
+
+        Booking booking = modelMapper.map(bookingDTO, Booking.class);
+
+        RoomDTO roomDTO = bookingDTO.getRoom();
+        if (roomDTO != null) {
+            Room room = roomMapper.toRoom(roomDTO);
+            booking.setRoom(room);
+        }
+
+        return booking;
+    }
+
+    public List<BookingDTO> toBookingDTOList(List<Booking> bookings) {
         return bookings.stream()
-                .map(BookingMapper::toBookingDTO)
+                .map(this::toBookingDTO)
                 .collect(Collectors.toList());
     }
-    public static List<Booking> toBookingList(List<BookingDTO> bookingDTOs) {
+
+    public List<Booking> toBookingList(List<BookingDTO> bookingDTOs) {
         return bookingDTOs.stream()
-                .map(BookingMapper::toBooking)
+                .map(this::toBooking)
                 .collect(Collectors.toList());
     }
 }

@@ -110,6 +110,45 @@ public class GlobalExceptionHandler {
                                 .build()
                 );
     }
+    @ExceptionHandler(RoomNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handleRoomNotFound(RoomNotFoundException exp) {
+        return ResponseEntity
+                .status(ROOM_NOT_FOUND.getHttpStatus())
+                .body(
+                        ExceptionResponse.builder()
+                                .businessErrorCode(ROOM_NOT_FOUND.getCode())
+                                .businessErrorDescription(ROOM_NOT_FOUND.getDescription())
+                                .error(exp.getMessage())
+                                .build()
+                );
+    }
+
+    @ExceptionHandler(BookingNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handleBookingNotFound(BookingNotFoundException exp) {
+        return ResponseEntity
+                .status(BOOKING_NOT_FOUND.getHttpStatus())
+                .body(
+                        ExceptionResponse.builder()
+                                .businessErrorCode(BOOKING_NOT_FOUND.getCode())
+                                .businessErrorDescription(BOOKING_NOT_FOUND.getDescription())
+                                .error(exp.getMessage())
+                                .build()
+                );
+    }
+
+    @ExceptionHandler(RoomNotAvailableForThisPeriodException.class)
+    public ResponseEntity<ExceptionResponse> handleRoomNotAvailable(RoomNotAvailableForThisPeriodException exp) {
+        return ResponseEntity
+                .status(ROOM_NOT_AVAILABLE_FOR_THIS_PERIOD.getHttpStatus())
+                .body(
+                        ExceptionResponse.builder()
+                                .businessErrorCode(ROOM_NOT_AVAILABLE_FOR_THIS_PERIOD.getCode())
+                                .businessErrorDescription(ROOM_NOT_AVAILABLE_FOR_THIS_PERIOD.getDescription())
+                                .error(exp.getMessage())
+                                .build()
+                );
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionResponse> handleException(Exception exp) {

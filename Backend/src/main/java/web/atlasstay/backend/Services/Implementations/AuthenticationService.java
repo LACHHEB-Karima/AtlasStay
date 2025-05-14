@@ -1,6 +1,8 @@
 package web.atlasstay.backend.Services.Implementations;
 
 import jakarta.mail.MessagingException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,14 +40,14 @@ public class AuthenticationService {
     private String activationUrl;
 
     public void register(RegistrationDto request) throws MessagingException {
-        var userRole = Role.USER;
+
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .accountLocked(false)
                 .enabled(false)
-                .role(userRole)
+                .role(Role.USER)
                 .build();
         userRepository.save(user);
         sendValidationEmail(user);
@@ -67,6 +69,28 @@ public class AuthenticationService {
         return AuthenticationResponseDto.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    public void authenticateAndSetCookie(String email, String password, HttpServletResponse response) {
+        // Authenticate user
+        var auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(email, password)
+        );
+
+        // Create JWT token
+        var claims = new HashMap<String, Object>();
+        var user = (User) auth.getPrincipal();
+        claims.put("fullName", user.getFullName());
+
+        var jwtToken = jwtService.generateToken(claims, user);
+
+        String cookieValue = String.format(
+                "token=%s; Max-Age=%d; Path=/; HttpOnly; SameSite=Lax",
+                jwtToken,
+                24 * 60 * 60
+        );
+        response.setHeader("Set-Cookie", cookieValue);
+
     }
 
     @Transactional

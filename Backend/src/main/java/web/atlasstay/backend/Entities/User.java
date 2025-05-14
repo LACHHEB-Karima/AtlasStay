@@ -39,7 +39,7 @@ public class User implements UserDetails, Principal {
     private boolean accountLocked;
     private boolean enabled;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role = Role.USER;
 
     @CreatedDate
     @Column(updatable = false)
@@ -93,6 +93,6 @@ public class User implements UserDetails, Principal {
 
     @Override
     public String getName() {
-        return email;
+        return name;
     }
 }

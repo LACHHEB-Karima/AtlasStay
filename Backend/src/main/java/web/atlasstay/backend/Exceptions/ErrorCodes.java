@@ -14,6 +14,10 @@ public enum ErrorCodes {
     ACCOUNT_LOCKED(302, FORBIDDEN, "User account is locked"),
     ACCOUNT_DISABLED(303, FORBIDDEN, "User account is disabled"),
     BAD_CREDENTIALS(304, FORBIDDEN, "Login or Password is incorrect"),
+    ROOM_NOT_FOUND(401, HttpStatus.NOT_FOUND, "Room not found"),
+    USER_NOT_FOUND(401, HttpStatus.NOT_FOUND, "User not found"),
+    BOOKING_NOT_FOUND(401, HttpStatus.NOT_FOUND, "Booking not found"),
+    ROOM_NOT_AVAILABLE_FOR_THIS_PERIOD(402, HttpStatus.BAD_REQUEST, "Room not available for the selected period")
     ;
 
     @Getter

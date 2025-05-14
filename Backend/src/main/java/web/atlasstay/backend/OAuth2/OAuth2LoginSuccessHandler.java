@@ -50,8 +50,15 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
                 });
 
         String jwt = jwtService.generateToken(user);
+        String cookieValue = String.format(
+                "token=%s; Max-Age=%d; Path=/; HttpOnly; SameSite=Lax",
+                jwt,
+                24 * 60 * 60
+        );
+        response.setHeader("Set-Cookie", cookieValue);
 
-        response.sendRedirect("http://localhost:5173?token=" + jwt);
+        // Redirect user to the frontend
+        response.sendRedirect("http://localhost:5173");
     }
 }
 

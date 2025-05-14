@@ -65,17 +65,5 @@ public class Room {
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> bookings = new ArrayList<>();
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", roomType='" + roomType + '\'' +
-                ", roomPrice=" + roomPrice +
-                ", currency=" + currency +
-                ", roomPhotoUrl='" + roomPhotoUrl + '\'' +
-                ", roomDescription='" + roomDescription + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
+
 }

@@ -1,15 +1,23 @@
 package web.atlasstay.backend.Services.Implementations;
 
+import com.stripe.Stripe;
+import com.stripe.model.PaymentIntent;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.atlasstay.backend.Dtos.BookingDTO;
 import web.atlasstay.backend.Dtos.BookingRequest;
 import web.atlasstay.backend.Entities.*;
 import web.atlasstay.backend.Exceptions.BookingNotFoundException;
+import web.atlasstay.backend.Exceptions.OperationNotPermittedException;
+import web.atlasstay.backend.Exceptions.RoomNotAvailableForThisPeriodException;
+import web.atlasstay.backend.Exceptions.RoomNotFoundException;
 import web.atlasstay.backend.Mappers.BookingMapper;
 import web.atlasstay.backend.Repositories.BookingRepository;
+import web.atlasstay.backend.Repositories.PaymentRepository;
 import web.atlasstay.backend.Repositories.RoomRepository;
 import web.atlasstay.backend.Services.Interfaces.BookingService;
 
@@ -17,19 +25,26 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+
 @Service
+@Slf4j
 @RequiredArgsConstructor
 @Transactional
 public class BookingServiceImpl implements BookingService {
 
+    @Value("${stripe.secret.key}")
+    private String stripeSecretKey;
+
     private final BookingRepository bookingRepository;
     private final RoomRepository roomRepository;
     private final EmailService emailService;
+    private final PaymentRepository paymentRepository;
+    private final BookingMapper bookingMapper;
 
     public Long saveBooking(BookingRequest bookingRequest, User user) {
         // Check if the room exists
         Room room = roomRepository.findById(bookingRequest.getRoomId())
-                .orElseThrow(() -> new RuntimeException("Room not found"));
+                .orElseThrow(() -> new RoomNotFoundException("Room not found"));
 
         // Validate that the check-in date is before the check-out date
         if (bookingRequest.getCheckInDate().isAfter(bookingRequest.getCheckOutDate())) {
@@ -38,7 +53,7 @@ public class BookingServiceImpl implements BookingService {
 
         // Check if the room is available for the given dates
         if (!isRoomAvailable(bookingRequest.getRoomId(), bookingRequest.getCheckInDate(), bookingRequest.getCheckOutDate())) {
-            throw new IllegalStateException("Room with ID " + bookingRequest.getRoomId() + " is not available for the selected dates.");
+            throw new RoomNotAvailableForThisPeriodException("This room is not available for the selected dates.");
         }
 
         // Create and save the booking
@@ -47,6 +62,7 @@ public class BookingServiceImpl implements BookingService {
         booking.setRoom(room);
         booking.setCheckInDate(bookingRequest.getCheckInDate());
         booking.setCheckOutDate(bookingRequest.getCheckOutDate());
+        booking.setTotalPrice(bookingRequest.getTotalPrice());
         booking.setNumOfAdults(bookingRequest.getNumOfAdults());
         booking.setNumOfChildren(bookingRequest.getNumOfChildren());
         booking.setStatus(BookingStatus.PENDING);
@@ -60,30 +76,51 @@ public class BookingServiceImpl implements BookingService {
         return booking.getId();
     }
 
-    public void payBooking(Long bookingId, User user) throws MessagingException {
-        // Retrieve the booking by ID
-        Booking booking = bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new RuntimeException("Booking not found"));
+    //Method to save payment and confirm booking
+    public void payBooking(Long bookingId, String paymentIntentId, User user) throws MessagingException {
 
-        // Check if the user is authorized to pay this booking
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new BookingNotFoundException("Booking not found"));
+
         if (!booking.getUser().getId().equals(user.getId())) {
-            throw new RuntimeException("You are not authorized to pay this booking.");
+            throw new OperationNotPermittedException("You are not authorized to pay this booking.");
         }
 
-        // Update the booking status to PAID and generate a confirmation code
-        booking.setStatus(BookingStatus.PAID);
-        booking.setBookingConfirmationCode(generateConfirmationCode());
-        bookingRepository.save(booking);
+        try {
+            Stripe.apiKey = stripeSecretKey;
 
-        // Send a booking confirmation email to the user
-        emailService.sendEmail(
-                booking.getUser().getEmail(),
-                booking.getUser().getName(),
-                EmailTemplate.BOOKING_CONFIRMATION,  // Reference to booking confirmation template
-                "", // Not needed here
-                booking.getBookingConfirmationCode(),
-                "Booking Confirmation - AtlasStay"
-        );
+            PaymentIntent paymentIntent = PaymentIntent.retrieve(paymentIntentId);
+
+            if (!"succeeded".equals(paymentIntent.getStatus())) {
+                throw new RuntimeException("Payment not successful. Booking not confirmed.");
+            }
+
+            // Save payment
+            Payment payment = new Payment();
+            payment.setPaymentIntentId(paymentIntentId);
+            payment.setAmountPaid(paymentIntent.getAmount());
+            payment.setBooking(booking);
+            log.info("Payment values:",paymentIntentId, paymentIntent.getAmount());
+            paymentRepository.save(payment);
+
+            // Confirm the booking
+            booking.setStatus(BookingStatus.PAID);
+            booking.setBookingConfirmationCode(generateConfirmationCode());
+            bookingRepository.save(booking);
+
+            // Send confirmation email
+            emailService.sendEmail(
+                    booking.getUser().getEmail(),
+                    booking.getUser().getName(),
+                    EmailTemplate.BOOKING_CONFIRMATION,
+                    "",
+                    booking.getBookingConfirmationCode(),
+                    "Booking Confirmation - AtlasStay"
+            );
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to confirm booking: " + e.getMessage());
+        }
     }
 
     // Helper method to generate a booking confirmation code
@@ -95,12 +132,12 @@ public class BookingServiceImpl implements BookingService {
     public BookingDTO getBookingById(Long bookingId) {
         Booking booking = bookingRepository.findById(bookingId)
                 .orElseThrow(() -> new BookingNotFoundException("Booking not found"));
-        return BookingMapper.toBookingDTO(booking);
+        return bookingMapper.toBookingDTO(booking);
     }
 
     @Override
     public List<BookingDTO> getAllBookings() {
-        return BookingMapper.toBookingDTOList(bookingRepository.findAll());
+        return bookingMapper.toBookingDTOList(bookingRepository.findAll());
     }
 
     @Override
@@ -115,11 +152,10 @@ public class BookingServiceImpl implements BookingService {
     @Transactional(readOnly = true)
     public BookingDTO findBookingByConfirmationCode(String confirmationCode) {
         Booking booking = bookingRepository.findByBookingConfirmationCode(confirmationCode)
-                .orElseThrow(() -> new BookingNotFoundException("Booking not found with confirmation code: " + confirmationCode));
-        return BookingMapper.toBookingDTO(booking);
+                .orElseThrow(() -> new BookingNotFoundException("Booking not found with the confirmation code: " + confirmationCode));
+        return bookingMapper.toBookingDTO(booking);
     }
 
-    @Transactional
     public void confirmBooking(String confirmationCode) {
         Booking booking = bookingRepository.findByBookingConfirmationCode(confirmationCode)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid confirmation code"));
@@ -132,8 +168,13 @@ public class BookingServiceImpl implements BookingService {
         bookingRepository.save(booking);
     }
 
-    private boolean isRoomAvailable(Long roomId, LocalDate checkIn, LocalDate checkOut) {
+     public boolean isRoomAvailable(Long roomId, LocalDate checkIn, LocalDate checkOut) {
         return bookingRepository.countOverlappingBookings(roomId, checkIn, checkOut) == 0;
+    }
+
+    public List<BookingDTO> getMyPaidBookings(User user) {
+        List<Booking> bookings = bookingRepository.findByUserAndStatus(user, BookingStatus.PAID);
+        return bookingMapper.toBookingDTOList(bookings);
     }
 
 }

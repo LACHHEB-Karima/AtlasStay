@@ -7,12 +7,15 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "bookings")
 public class Booking {
 
@@ -36,10 +39,12 @@ public class Booking {
 
     private int totalNumOfGuest;
 
+    private BigDecimal totalPrice;
+
     private String bookingConfirmationCode;
 
     @Enumerated(EnumType.STRING)
-    private BookingStatus status = BookingStatus.PENDING; // Default to PENDING
+    private BookingStatus status = BookingStatus.PENDING;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -48,17 +53,6 @@ public class Booking {
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -80,20 +74,6 @@ public class Booking {
     public void setNumOfChildren(int numOfChildren) {
         this.numOfChildren = numOfChildren;
         calculateTotalNumberOfGuest();
-    }
-
-    @Override
-    public String toString() {
-        return "Booking{" +
-                "id=" + id +
-                ", checkInDate=" + checkInDate +
-                ", checkOutDate=" + checkOutDate +
-                ", numOfAdults=" + numOfAdults +
-                ", numOfChildren=" + numOfChildren +
-                ", totalNumOfGuest=" + totalNumOfGuest +
-                ", bookingConfirmationCode='" + bookingConfirmationCode + '\'' +
-                ", status=" + status +
-                '}';
     }
 }
 

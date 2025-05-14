@@ -1,22 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Booking Confirmation</title>
+  <meta charset="UTF-8" />
+  <title>Booking Confirmation - AtlasStay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f1f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .email-wrapper {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 128, 128, 0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo strong {
+      color: #0f766e; /* Darker teal for Atlas */
+      font-size: 34px;
+    }
+
+    .logo span {
+      color: #14b8a6; /* Lighter teal for Stay */
+    }
+
+    h2 {
+      color: #0f766e;
+      font-size: 22px;
+      margin-top: 0;
+    }
+
+    .content {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background-color: #e0f2f1;
+      color: #0f766e;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: monospace;
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-<h2>Hello, <span th:text="${username}">User</span>!</h2>
+<div class="email-wrapper">
+  <div class="logo">
+    <strong>Atlas</strong><span>Stay</span>
+  </div>
 
-<p>Thank you for your booking with AtlasStay!</p>
+  <div class="content">
+    <h2>Hello, <span th:text="${username}">User</span> 👋</h2>
 
-<p>Your booking has been confirmed. Here are the details:</p>
+    <p>Thank you for booking with <strong>AtlasStay</strong>! Your reservation is confirmed.</p>
 
-<ul>
-  <li><strong>Confirmation Code:</strong> <span th:text="${activation_code}">CONF1234</span></li>
-</ul>
+    <p><strong>Your Confirmation Code:</strong></p>
+    <div class="highlight" th:text="${activation_code}">CONF1234</div>
 
-<p>We look forward to welcoming you!</p>
+    <p>We look forward to making your stay comfortable and memorable.</p>
 
-<p>Best regards,<br>AtlasStay Team</p>
+    <p>Warm regards,</p>
+    <p><strong>The AtlasStay Team</strong></p>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AtlasStay. All rights reserved.
+  </div>
+</div>
 </body>
 </html>

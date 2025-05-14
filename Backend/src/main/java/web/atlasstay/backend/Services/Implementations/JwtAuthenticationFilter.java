@@ -40,16 +40,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String jwt = null;
         String userEmail = null;
 
-        // 1. Try to get JWT from Authorization header (classical method)
+        //  Get JWT from Authorization header (classical method)
         final String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             jwt = authHeader.substring(7);
         }
 
-        // 2. If not found, try to get JWT from cookies
+        // Get JWT from cookies
         if (jwt == null && request.getCookies() != null) {
             jwt = Arrays.stream(request.getCookies())
-                    .filter(cookie -> "jwt".equals(cookie.getName()))
+                    .filter(cookie -> "token".equals(cookie.getName()))
                     .findFirst()
                     .map(Cookie::getValue)
                     .orElse(null);

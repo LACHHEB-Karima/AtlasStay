@@ -2,8 +2,8 @@ package web.atlasstay.backend.Dtos;
 
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +16,10 @@ public class BookingDTO {
     private LocalDate checkOutDate;
     private int numOfAdults;
     private int numOfChildren;
+    private BigDecimal totalPrice;
     private String bookingConfirmationCode;
     private String status;
-    private Long roomId;
-    private UUID userId;
+    private RoomDTO room;
     public int getTotalNumOfGuest() {
         return numOfAdults + numOfChildren;
     }

@@ -1,9 +1,12 @@
 package web.atlasstay.backend.Dtos;
 
+import lombok.Data;
+
 import java.time.LocalDate;
 
-public record AvailabilityCheckRequest(
-        Long roomId,
-        LocalDate checkInDate,
-        LocalDate checkOutDate
-) {}
+@Data
+public class AvailabilityCheckRequest{
+        private Long roomId;
+        private LocalDate checkInDate;
+        private LocalDate checkOutDate;
+}
